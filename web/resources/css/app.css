@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* One accent, used sparingly: the next thing the traveller should do. */
+    --color-accent-50: oklch(0.97 0.02 185);
+    --color-accent-100: oklch(0.93 0.05 185);
+    --color-accent-500: oklch(0.62 0.12 185);
+    --color-accent-600: oklch(0.55 0.11 185);
+    --color-accent-700: oklch(0.47 0.09 185);
+}
