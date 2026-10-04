@@ -81,7 +81,7 @@ class WindowNode extends Node
         // read by it: extract the timing and let propose() enforce it.
         $state->applyDatePreference($this->memoize(
             "feedback-dates-{$round}",
-            fn (): array => DatePreferences::extract($this->services, $feedback, $state->today()),
+            fn (): array => DatePreferences::extract($this->services, $feedback, $state->today(), "{$state->getWorkflowId()}:dates"),
         ));
 
         return $this->revise($state, $feedback);
@@ -142,7 +142,7 @@ class WindowNode extends Node
             ...$this->feedbackLines($state->feedback('window')),
         ]);
 
-        $agent = $this->services->wire(SeasonAdvisorAgent::make());
+        $agent = $this->services->wire(SeasonAdvisorAgent::make(workflowId: "{$state->getWorkflowId()}:advisor"));
         $agent->addTool(new MonthlyClimateTool($this->services->places, $this->services->climate));
 
         try {

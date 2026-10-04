@@ -96,7 +96,7 @@ class OffersNode extends Node
         $destination = $state->destination();
         $inventory = $this->services->inventory;
 
-        $agent = $this->services->wire(OfferScoutAgent::make());
+        $agent = $this->services->wire(OfferScoutAgent::make(workflowId: "{$state->getWorkflowId()}:scout"));
         $agent->addTool([
             new SearchFlightsTool($inventory, $origin, $destination, $window['start'], $window['end'], $request['travellers']),
             new SearchHotelsTool($inventory, $destination, $window['start'], $window['end'], $request['travellers']),

@@ -23,10 +23,10 @@ final class DatePreferences
     /**
      * @return array{earliest_start: string, latest_start: string, nights: int}
      */
-    public static function extract(TripServices $services, string $text, string $today): array
+    public static function extract(TripServices $services, string $text, string $today, string $thread): array
     {
         try {
-            $preference = $services->wire(DatePreferenceAgent::make())->structured(
+            $preference = $services->wire(DatePreferenceAgent::make(workflowId: $thread))->structured(
                 new UserMessage("Today is {$today}.\nThe traveller wrote: \"{$text}\""),
                 DatePreference::class,
                 maxRetries: 2,

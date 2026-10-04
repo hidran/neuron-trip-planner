@@ -35,7 +35,7 @@ class IntakeNode extends Node
         /** @var array{origin_city: string, origin_country_code: string, travellers: int, nights: int, budget: int, preferences: string}|array{invalid: string} $request */
         $request = $this->memoize('intake', function () use ($state): array {
             try {
-                $result = $this->services->wire(IntakeAgent::make())->structured(
+                $result = $this->services->wire(IntakeAgent::make(workflowId: "{$state->getWorkflowId()}:intake"))->structured(
                     new UserMessage($state->ask()),
                     TripRequest::class,
                     maxRetries: 2,
@@ -76,7 +76,7 @@ class IntakeNode extends Node
         // can enforce it in code.
         $state->applyDatePreference($this->memoize(
             'intake-dates',
-            fn (): array => DatePreferences::extract($this->services, $state->ask(), $state->today()),
+            fn (): array => DatePreferences::extract($this->services, $state->ask(), $state->today(), "{$state->getWorkflowId()}:dates"),
         ));
 
         return new RequestUnderstood();
