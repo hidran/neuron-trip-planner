@@ -6,6 +6,7 @@ namespace NeuronBook\TripPlanner\Nodes;
 
 use NeuronAI\Chat\Messages\UserMessage;
 use NeuronAI\Exceptions\AgentException;
+use NeuronAI\StructuredOutput\Deserializer\DeserializerException;
 use NeuronAI\Workflow\Events\StartEvent;
 use NeuronAI\Workflow\Events\StopEvent;
 use NeuronAI\Workflow\Node;
@@ -39,7 +40,7 @@ class IntakeNode extends Node
                     TripRequest::class,
                     maxRetries: 2,
                 );
-            } catch (AgentException $e) {
+            } catch (AgentException|DeserializerException $e) {
                 return ['invalid' => \trim(\str_replace("\n", ' ', $e->getMessage()))];
             }
             \assert($result instanceof TripRequest);

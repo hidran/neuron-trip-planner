@@ -6,6 +6,7 @@ namespace NeuronBook\TripPlanner\Nodes;
 
 use NeuronAI\Chat\Messages\UserMessage;
 use NeuronAI\Exceptions\AgentException;
+use NeuronAI\StructuredOutput\Deserializer\DeserializerException;
 use NeuronAI\Workflow\Events\StopEvent;
 use NeuronAI\Workflow\Node;
 use NeuronBook\TripPlanner\Agents\OfferScoutAgent;
@@ -113,7 +114,7 @@ class OffersNode extends Node
 
         try {
             $choice = $agent->structured(new UserMessage($prompt), TripChoice::class, maxRetries: 2);
-        } catch (AgentException $e) {
+        } catch (AgentException|DeserializerException $e) {
             return ['invalid' => 'The last choice was incomplete: ' . \trim(\str_replace("\n", ' ', $e->getMessage()))];
         }
         \assert($choice instanceof TripChoice);

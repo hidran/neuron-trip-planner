@@ -7,6 +7,7 @@ require __DIR__ . '/bootstrap.php';
 use NeuronAI\Exceptions\HttpException;
 use NeuronAI\Exceptions\ProviderException;
 use NeuronAI\Exceptions\RunInFlightException;
+use NeuronAI\Workflow\Executor\ExecutionRequest;
 use NeuronAI\Workflow\Interrupt\InterruptRequest;
 use NeuronAI\Workflow\Persistence\FilePersistence;
 use NeuronAI\Workflow\WorkflowStatus;
@@ -56,9 +57,9 @@ try {
             // A failed run (a booking service timed out, say) recovers with a
             // plain run(): completed steps and memoized bookings are reused.
             WorkflowStatus::Failed => $workflow($tripId)->run(),
-            // Still waiting for an answer: an inputless resume() hands back the
+            // Still waiting for an answer: an inputless ExecutionRequest::resume() hands back the
             // paused state - or, if a deadline passed, lets the node react to it.
-            default => $workflow($tripId)->resume()->run(),
+            default => $workflow($tripId)->run(ExecutionRequest::resume()),
         };
     } else {
         $tripId = \substr(\bin2hex(\random_bytes(4)), 0, 8);
@@ -78,7 +79,7 @@ try {
         }
 
         echo "Working on it...\n";
-        $state = $workflow($tripId)->resume($payload)->run();
+        $state = $workflow($tripId)->run(ExecutionRequest::resume($payload));
     }
 } catch (GatewayUnavailable|HttpException|ProviderException $e) {
     // The run is marked failed, not lost: every completed step and every

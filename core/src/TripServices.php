@@ -6,6 +6,7 @@ namespace NeuronBook\TripPlanner;
 
 use NeuronAI\Agent\Agent;
 use NeuronAI\Providers\AIProviderInterface;
+use NeuronAI\UniqueIdGenerator;
 use NeuronBook\TripPlanner\Booking\BookingGateway;
 use NeuronBook\TripPlanner\Booking\SandboxBookingGateway;
 use NeuronBook\TripPlanner\Climate\ClimateSource;
@@ -58,7 +59,8 @@ final class TripServices
      */
     public function wire(Agent $agent): Agent
     {
-        $agent->setAiProvider($this->provider);
+        // v4 never invents an ID: each one-shot agent call gets a thread of its own.
+        $agent->setAiProvider($this->provider)->setThreadId(UniqueIdGenerator::generateId('trip_'));
 
         return $agent;
     }

@@ -16,7 +16,7 @@ use NeuronAI\Workflow\Interrupt\WaitForEventRequest;
  *   for "whatever it costs now", so a price that moved since the traveller
  *   looked cannot slip through;
  * - it expires. Fares are held for minutes, not days: once the deadline has
- *   passed, an inputless resume()->run() delivers null to the node, which
+ *   passed, an inputless run(ExecutionRequest::resume()) delivers null to the node, which
  *   ends the trip instead of booking at a stale price.
  *
  * Answer with ['decision' => 'authorize', 'amount' => 1234.56] or

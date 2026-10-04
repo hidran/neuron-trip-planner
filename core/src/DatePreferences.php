@@ -6,6 +6,7 @@ namespace NeuronBook\TripPlanner;
 
 use NeuronAI\Chat\Messages\UserMessage;
 use NeuronAI\Exceptions\AgentException;
+use NeuronAI\StructuredOutput\Deserializer\DeserializerException;
 use NeuronBook\TripPlanner\Agents\DatePreferenceAgent;
 use NeuronBook\TripPlanner\Output\DatePreference;
 
@@ -30,7 +31,7 @@ final class DatePreferences
                 DatePreference::class,
                 maxRetries: 2,
             );
-        } catch (AgentException) {
+        } catch (AgentException|DeserializerException) {
             return ['earliest_start' => '', 'latest_start' => '', 'nights' => 0];
         }
         \assert($preference instanceof DatePreference);

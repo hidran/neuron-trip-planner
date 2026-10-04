@@ -59,7 +59,7 @@ class AuthorizeNode extends Node
             expiresAt: (new DateTimeImmutable())->setTimestamp($quote['deadline']),
         ));
 
-        // null: the deadline passed and an inputless resume()->run() arrived.
+        // null: the deadline passed and an inputless run(ExecutionRequest::resume()) arrived.
         if ($payload === null) {
             $state->finish('authorization_expired', 'The payment authorisation window closed. Nothing was booked.');
 

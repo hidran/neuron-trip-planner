@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Trips;
 
 use App\Models\Trip;
-use NeuronAI\Laravel\Models\WorkflowStore;
-use NeuronAI\Workflow\Persistence\EloquentPersistence;
+use Illuminate\Support\Facades\DB;
+use NeuronAI\Workflow\Executor\ExecutionRequest;
+use NeuronAI\Workflow\Persistence\DatabasePersistence;
 use NeuronBook\TripPlanner\Requests\DecisionRequest;
 use NeuronBook\TripPlanner\Requests\PaymentAuthorizationRequest;
 use NeuronBook\TripPlanner\TripServices;
@@ -17,7 +18,7 @@ use NeuronBook\TripPlanner\TripWorkflow;
  * The one place that runs a trip's workflow and records what happened.
  *
  * Every call rebuilds TripWorkflow from the trip ID alone: the workflow's
- * durable state lives in workflow_store (EloquentPersistence), so any worker
+ * durable state lives in workflow_store (DatabasePersistence), so any worker
  * can pick up any trip. After each segment the state is projected into the
  * trips table, which is all the API ever reads.
  */
@@ -43,8 +44,7 @@ final readonly class TripRunner
     public function answer(Trip $trip, ?array $payload): void
     {
         $state = $this->workflow($trip)
-            ->resume($payload, expectedRunId: $trip->run_id, expectedExecutionAttempt: $trip->execution_attempt)
-            ->run();
+            ->run(ExecutionRequest::resume($payload, expectedRunId: $trip->run_id, expectedExecutionAttempt: $trip->execution_attempt));
 
         $this->record($trip, $state);
     }
@@ -63,7 +63,10 @@ final readonly class TripRunner
             ask: $trip->ask,
             today: $trip->created_at->toDateString(),
             authorizationWindow: $this->authorizationWindow,
-        )->setPersistence(new EloquentPersistence(WorkflowStore::class));
+        )// DatabasePersistence, not EloquentPersistence: the shipped workflow_store table has a
+        // composite primary key and no id, which the Eloquent model cannot update (neuron-laravel 2.0.0).
+        // It keeps the PDO it is given, so take Laravel's current one on every call.
+        ->setPersistence(new DatabasePersistence(DB::connection()->getPdo()));
     }
 
     private function record(Trip $trip, TripState $state): void

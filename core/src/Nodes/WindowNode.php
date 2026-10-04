@@ -7,6 +7,7 @@ namespace NeuronBook\TripPlanner\Nodes;
 use DateTimeImmutable;
 use NeuronAI\Chat\Messages\UserMessage;
 use NeuronAI\Exceptions\AgentException;
+use NeuronAI\StructuredOutput\Deserializer\DeserializerException;
 use NeuronAI\Workflow\Events\StopEvent;
 use NeuronAI\Workflow\Node;
 use NeuronBook\TripPlanner\Agents\SeasonAdvisorAgent;
@@ -146,7 +147,7 @@ class WindowNode extends Node
 
         try {
             $window = $agent->structured(new UserMessage($prompt), TravelWindow::class, maxRetries: 2);
-        } catch (AgentException $e) {
+        } catch (AgentException|DeserializerException $e) {
             // Retries exhausted without a valid structure - common with small
             // local models. Treat it like any rule the code can check: one
             // more bounded round, with the violations as feedback.

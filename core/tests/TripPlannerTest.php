@@ -11,6 +11,7 @@ use NeuronAI\Exceptions\WorkflowException;
 use NeuronAI\Testing\FakeAIProvider;
 use NeuronAI\Testing\RequestRecord;
 use NeuronAI\Tools\ToolCall;
+use NeuronAI\Workflow\Executor\ExecutionRequest;
 use NeuronAI\Workflow\Persistence\FilePersistence;
 use NeuronBook\TripPlanner\Booking\GatewayUnavailable;
 use NeuronBook\TripPlanner\Booking\SandboxBookingGateway;
@@ -238,8 +239,10 @@ final class TripPlannerTest extends TestCase
     {
         // maxRetries: 2 means three attempts, all of them blank - what a small
         // local model sometimes does - then a good proposal in the next round.
-        $blank = new AssistantMessage('{"destination":"cancun","start_date":"2027-02-10","weather_summary":"","reasoning":""}');
-        $this->script(...$this->intake(), ...[$blank, $blank, $blank], ...$this->window('Cancún', '2027-02-10'));
+        // One message per attempt: a message store skips an ID it already holds,
+        // so queueing the same instance three times would lose two of them.
+        $blank = static fn (): AssistantMessage => new AssistantMessage('{"destination_place_id":' . self::place('Cancún')->id . ',"start_date":"2027-02-10","weather_summary":"","reasoning":""}');
+        $this->script(...$this->intake(), ...[$blank(), $blank(), $blank()], ...$this->window('Cancún', '2027-02-10'));
 
         $state = $this->start();
 
@@ -285,7 +288,7 @@ final class TripPlannerTest extends TestCase
         $this->approveUntilPayment();
 
         \sleep(2);
-        $state = $this->workflow()->resume()->run();
+        $state = $this->workflow()->run(ExecutionRequest::resume());
 
         self::assertSame('authorization_expired', $state->outcome());
         self::assertSame([], $this->gateway->ledger());
@@ -379,7 +382,7 @@ final class TripPlannerTest extends TestCase
      */
     private function answer(array $payload): TripState
     {
-        return $this->workflow()->resume($payload)->run();
+        return $this->workflow()->run(ExecutionRequest::resume($payload));
     }
 
     private function approveUntilPayment(): PaymentAuthorizationRequest

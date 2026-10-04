@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9a7bd6702a4abb5630488cf389ccd58",
+    "content-hash": "97f3165363cc9b5616744d15376cdd3d",
     "packages": [
         {
             "name": "brick/math",
@@ -2407,16 +2407,16 @@
         },
         {
             "name": "neuron-core/neuron-ai",
-            "version": "4.x-dev",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neuron-core/neuron-ai.git",
-                "reference": "df30064ddf22f5d91ed722faef59f2ed573b3afa"
+                "reference": "4fd297c5fe0e8a0f51305b4a45c8611c2718f583"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neuron-core/neuron-ai/zipball/df30064ddf22f5d91ed722faef59f2ed573b3afa",
-                "reference": "df30064ddf22f5d91ed722faef59f2ed573b3afa",
+                "url": "https://api.github.com/repos/neuron-core/neuron-ai/zipball/4fd297c5fe0e8a0f51305b4a45c8611c2718f583",
+                "reference": "4fd297c5fe0e8a0f51305b4a45c8611c2718f583",
                 "shasum": ""
             },
             "require": {
@@ -2428,38 +2428,42 @@
                 "amphp/amp": "^3.1.1",
                 "amphp/http-client": "^5.3",
                 "aws/aws-sdk-php": "^3.209",
-                "elasticsearch/elasticsearch": "^8.0|^9.0",
+                "elasticsearch/elasticsearch": "^8.19|^9.0",
                 "ext-bcmath": "*",
                 "ext-mongodb": "*",
                 "ext-pdo": "*",
+                "ext-pdo_pgsql": "*",
                 "ext-redis": "*",
                 "ext-sodium": "*",
                 "friendsofphp/php-cs-fixer": "^3.75",
                 "google/auth": "^1.49",
                 "guzzlehttp/guzzle": "^7.0|^8.0",
                 "html2text/html2text": "^4.3",
-                "illuminate/database": "^10.0|^11.0|^12.0",
+                "illuminate/database": "^10.21|^11.0|^12.0",
                 "laudis/neo4j-php-client": "^3.4",
                 "mongodb/mongodb": "^2.3",
                 "opensearch-project/opensearch-php": "^2.5",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^10.0",
                 "psr/http-message": "^1.0|^2.0",
+                "psr/log": "^1.0|^2.0|^3.0",
                 "pusher/pusher-php-server": "^7.2.4",
                 "rector/rector": "^2.0",
                 "spatie/fork": "^1.2",
+                "symfony/mercure": "^0.7|^0.8",
                 "tomasvotruba/type-coverage": "^2.0",
-                "typesense/typesense-php": "^5.0",
+                "typesense/typesense-php": "^5.0.2",
                 "vlucas/phpdotenv": "^5.6"
             },
             "suggest": {
                 "ext-bcmath": "Exact integer tools in the Calculator toolkit (factorial, combinations, gcd, mod_pow, primes).",
                 "ext-igbinary": "Smaller/faster durable-step serialization via IgbinarySerializer.",
-                "ext-redis": "Redis workflow persistence via RedisPersistence and Pub/Sub streaming via RedisChannel.",
+                "ext-redis": "Redis workflow persistence via RedisPersistence and Pub/Sub streaming via RedisChannel and RedisChannelReader.",
                 "ext-sodium": "End-to-end encryption for Pusher streaming channels.",
-                "guzzlehttp/guzzle": "Use GuzzleHttpClient as the HTTP client, e.g. for HandlerStack middleware.",
+                "psr/log": "Logging observability events through LogListener.",
                 "pusher/pusher-php-server": "Pusher-compatible streaming channels, including encrypted channels (requires >=7.2.4 for HTTP timeout propagation).",
-                "spatie/fork": "Parallel evaluation runs via the --concurrency option (requires ext-pcntl)."
+                "spatie/fork": "Parallel evaluation runs via the --concurrency option (requires ext-pcntl and ext-posix).",
+                "symfony/mercure": "Mercure streaming channel (^0.8 for hubs speaking Mercure protocol 1.0)."
             },
             "bin": [
                 "bin/neuron"
@@ -2480,10 +2484,10 @@
                     "email": "valerio@inspector.dev"
                 }
             ],
-            "description": "A unified PHP layer for building AI apps with modern streaming, multi-modality support, and durable workflow.",
+            "description": "A unified layer for building AI-native applications in PHP.",
             "support": {
                 "issues": "https://github.com/neuron-core/neuron-ai/issues",
-                "source": "https://github.com/neuron-core/neuron-ai/tree/4.x"
+                "source": "https://github.com/neuron-core/neuron-ai/tree/frontend-0.3.0"
             },
             "funding": [
                 {
@@ -2491,27 +2495,27 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-21T08:50:42+00:00"
+            "time": "2026-10-04T19:00:47+00:00"
         },
         {
             "name": "neuron-core/neuron-laravel",
-            "version": "2.x-dev",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neuron-core/neuron-laravel.git",
-                "reference": "399936cbccbe6af43e4979eb2395135ab02963af"
+                "reference": "3760c6a74b8d84942c4b55ef111c9fb2b2afd721"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neuron-core/neuron-laravel/zipball/399936cbccbe6af43e4979eb2395135ab02963af",
-                "reference": "399936cbccbe6af43e4979eb2395135ab02963af",
+                "url": "https://api.github.com/repos/neuron-core/neuron-laravel/zipball/3760c6a74b8d84942c4b55ef111c9fb2b2afd721",
+                "reference": "3760c6a74b8d84942c4b55ef111c9fb2b2afd721",
                 "shasum": ""
             },
             "require": {
                 "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
                 "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
                 "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
-                "neuron-core/neuron-ai": "4.x-dev",
+                "neuron-core/neuron-ai": "^4.0",
                 "php": "^8.2"
             },
             "require-dev": {
@@ -2563,9 +2567,9 @@
             ],
             "support": {
                 "issues": "https://github.com/neuron-core/neuron-laravel/issues",
-                "source": "https://github.com/neuron-core/neuron-laravel/tree/2.x"
+                "source": "https://github.com/neuron-core/neuron-laravel/tree/2.0.0"
             },
-            "time": "2026-09-18T09:26:45+00:00"
+            "time": "2026-09-30T10:46:52+00:00"
         },
         {
             "name": "neuronbook/trip-planner",
@@ -2573,11 +2577,11 @@
             "dist": {
                 "type": "path",
                 "url": "../core",
-                "reference": "cf9001d005e958258a1ebea167398de12645853d"
+                "reference": "0200684f6cf19a2858ff24c6e22db398ced52e50"
             },
             "require": {
                 "ext-curl": "*",
-                "neuron-core/neuron-ai": "^4.0 || 4.x-dev",
+                "neuron-core/neuron-ai": "^4.0.3",
                 "php": "^8.5"
             },
             "require-dev": {
@@ -8768,18 +8772,9 @@
             "time": "2025-12-08T11:19:18+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "neuron-core/neuron-ai",
-            "version": "4.9999999.9999999.9999999-dev",
-            "alias": "4.0.0",
-            "alias_normalized": "4.0.0.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "neuron-core/neuron-ai": 20,
-        "neuron-core/neuron-laravel": 20,
         "neuronbook/trip-planner": 20
     },
     "prefer-stable": true,
@@ -8788,5 +8783,5 @@
         "php": "^8.5"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

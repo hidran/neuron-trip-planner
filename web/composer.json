@@ -9,8 +9,8 @@
         "php": "^8.5",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
-        "neuron-core/neuron-ai": "4.x-dev as 4.0.0",
-        "neuron-core/neuron-laravel": "2.x-dev",
+        "neuron-core/neuron-ai": "^4.0.3",
+        "neuron-core/neuron-laravel": "^2.0",
         "neuronbook/trip-planner": "@dev"
     },
     "require-dev": {
