@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "hotelId": "HLKYO001",
+      "name": "KYOTO GRAND",
+      "iataCode": "KIX",
+      "geoCode": {
+        "latitude": 35.0,
+        "longitude": 135.7
+      }
+    },
+    {
+      "hotelId": "HLKYO002",
+      "name": "GION GUEST HOUSE",
+      "iataCode": "KIX"
+    }
+  ]
+}

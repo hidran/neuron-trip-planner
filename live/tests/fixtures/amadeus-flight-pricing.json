@@ -1,0 +1,16 @@
+{
+  "data": {
+    "type": "flight-offers-pricing",
+    "flightOffers": [
+      {
+        "type": "flight-offer",
+        "id": "1",
+        "price": {
+          "currency": "EUR",
+          "total": "1612.80",
+          "grandTotal": "1612.80"
+        }
+      }
+    ]
+  }
+}

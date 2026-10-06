@@ -16,7 +16,8 @@ explaining why.
 
 | | |
 |---|---|
-| [`core/`](core) | The library: agents, tools, the workflow, the sandbox travel services, a command-line runner and 20 model-free tests. |
+| [`core/`](core) | The library: agents, tools, the workflow, the sandbox travel services, a command-line runner and 22 model-free tests. |
+| [`live/`](live) | The same planner with **real online APIs as agent tools** — forecasts, public holidays, exchange rates, travel advisories, destination guides, attractions and optional Amadeus flights and hotels. One factory differs from `core/`; the workflow does not. |
 | [`web/`](web) | A Laravel 13 API and a React + Tailwind SPA on top of `core/`: queued workflow segments, fenced resumes, expiring payment holds. |
 
 **Geocoding and weather are real** (Open-Meteo, free, no key). **Flights,

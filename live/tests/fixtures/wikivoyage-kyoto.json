@@ -1,0 +1,11 @@
+{
+  "type": "standard",
+  "title": "Kyoto",
+  "description": "city in Japan",
+  "extract": "Kyoto is the cultural heart of Japan, the capital for over a thousand years, with more than a thousand temples and shrines, traditional wooden machiya houses and the geisha districts of Gion and Pontocho.",
+  "content_urls": {
+    "desktop": {
+      "page": "https://en.wikivoyage.org/wiki/Kyoto"
+    }
+  }
+}

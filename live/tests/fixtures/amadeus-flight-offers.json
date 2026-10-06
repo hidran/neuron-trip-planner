@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "count": 3
+  },
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "itineraries": [
+        {
+          "duration": "PT14H30M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "VCE",
+                "at": "2027-04-27T09:00:00"
+              },
+              "arrival": {
+                "iataCode": "DOH",
+                "at": "2027-04-27T15:00:00"
+              },
+              "carrierCode": "QR",
+              "number": "130"
+            },
+            {
+              "departure": {
+                "iataCode": "DOH",
+                "at": "2027-04-27T17:00:00"
+              },
+              "arrival": {
+                "iataCode": "KIX",
+                "at": "2027-04-28T08:30:00"
+              },
+              "carrierCode": "QR",
+              "number": "806"
+            }
+          ]
+        },
+        {
+          "duration": "PT16H",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "KIX",
+                "at": "2027-05-07T00:30:00"
+              },
+              "arrival": {
+                "iataCode": "VCE",
+                "at": "2027-05-07T16:30:00"
+              },
+              "carrierCode": "QR",
+              "number": "807"
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "1580.40",
+        "grandTotal": "1580.40"
+      },
+      "validatingAirlineCodes": [
+        "QR"
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "2",
+      "itineraries": [
+        {
+          "duration": "PT13H10M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "VCE",
+                "at": "2027-04-27T07:00:00"
+              },
+              "arrival": {
+                "iataCode": "KIX",
+                "at": "2027-04-28T05:10:00"
+              },
+              "carrierCode": "XX",
+              "number": "1"
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "1990.00",
+        "grandTotal": "1990.00"
+      },
+      "validatingAirlineCodes": [
+        "XX"
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "3",
+      "itineraries": [
+        {
+          "duration": "PT15H",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "VCE",
+                "at": "2027-04-27T07:00:00"
+              },
+              "arrival": {
+                "iataCode": "KIX",
+                "at": "2027-04-28T05:10:00"
+              },
+              "carrierCode": "LH",
+              "number": "9"
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "USD",
+        "total": "1200.00",
+        "grandTotal": "1200.00"
+      },
+      "validatingAirlineCodes": [
+        "LH"
+      ]
+    }
+  ],
+  "dictionaries": {
+    "carriers": {
+      "QR": "QATAR AIRWAYS",
+      "XX": "EXAMPLE AIR",
+      "LH": "LUFTHANSA"
+    }
+  }
+}

@@ -6,6 +6,8 @@ namespace NeuronBook\TripPlanner;
 
 use NeuronAI\Agent\Agent;
 use NeuronAI\Providers\AIProviderInterface;
+use NeuronAI\Tools\ToolInterface;
+use NeuronAI\Tools\Toolkits\ToolkitInterface;
 use NeuronBook\TripPlanner\Booking\BookingGateway;
 use NeuronBook\TripPlanner\Booking\SandboxBookingGateway;
 use NeuronBook\TripPlanner\Climate\ClimateSource;
@@ -31,6 +33,15 @@ final class TripServices
         public readonly ClimateSource $climate,
         public readonly Inventory $inventory,
         public readonly BookingGateway $bookings,
+        /**
+         * Extra tools or toolkits to attach to an agent, keyed by agent class.
+         * An agent matches when it is an instance of the key, so a base class
+         * reaches its subclasses. The live version uses this to give the
+         * advisor and the scout real online APIs without touching a node.
+         *
+         * @var array<class-string<Agent>, list<ToolInterface|ToolkitInterface>>
+         */
+        public readonly array $agentTools = [],
     ) {
     }
 
@@ -49,8 +60,9 @@ final class TripServices
     }
 
     /**
-     * Give an agent the provider. Agents in this package declare none of
-     * their own, so this is the one place that decides which model runs.
+     * Give an agent the provider, and any extra tools registered for its
+     * class. Agents in this package declare none of their own, so this is the
+     * one place that decides which model runs and which tools are on offer.
      *
      * @template T of Agent
      * @param T $agent
@@ -59,6 +71,12 @@ final class TripServices
     public function wire(Agent $agent): Agent
     {
         $agent->setAiProvider($this->provider);
+
+        foreach ($this->agentTools as $class => $tools) {
+            if ($agent instanceof $class) {
+                $agent->addTool($tools);
+            }
+        }
 
         return $agent;
     }

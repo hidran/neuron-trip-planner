@@ -1,0 +1,11 @@
+{
+  "type": "amadeusOAuth2Token",
+  "username": "x",
+  "application_name": "x",
+  "client_id": "id",
+  "token_type": "Bearer",
+  "access_token": "TEST-TOKEN",
+  "expires_in": 1799,
+  "state": "approved",
+  "scope": ""
+}

@@ -1,0 +1,42 @@
+{
+  "name": {
+    "common": "Japan",
+    "official": "Japan",
+    "nativeName": {
+      "jpn": {
+        "official": "日本",
+        "common": "日本"
+      }
+    }
+  },
+  "capital": [
+    "Tokyo"
+  ],
+  "region": "Asia",
+  "subregion": "Eastern Asia",
+  "currencies": {
+    "JPY": {
+      "name": "Japanese yen",
+      "symbol": "¥"
+    }
+  },
+  "languages": {
+    "jpn": "Japanese"
+  },
+  "idd": {
+    "root": "+8",
+    "suffixes": [
+      "1"
+    ]
+  },
+  "car": {
+    "signs": [
+      "J"
+    ],
+    "side": "left"
+  },
+  "timezones": [
+    "UTC+09:00"
+  ],
+  "population": 123210000
+}

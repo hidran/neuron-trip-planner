@@ -1,0 +1,28 @@
+{
+  "api_status": {
+    "request": {
+      "item": "JP"
+    },
+    "reply": {
+      "cache": "cached",
+      "code": 200,
+      "status": "ok",
+      "note": "This is a hand-written fixture in the documented shape.",
+      "count": 1
+    }
+  },
+  "data": {
+    "JP": {
+      "iso_alpha2": "JP",
+      "name": "Japan",
+      "continent": "AS",
+      "advisory": {
+        "score": 1.9,
+        "sources_active": 4,
+        "message": "",
+        "updated": "2026-09-20 08:00:00",
+        "source": "https://www.travel-advisory.info/japan"
+      }
+    }
+  }
+}

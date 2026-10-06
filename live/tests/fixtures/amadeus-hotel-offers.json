@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "hotelId": "HLKYO001",
+        "name": "KYOTO GRAND",
+        "cityCode": "KYO",
+        "rating": "4"
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "OFFERAAA1",
+          "checkInDate": "2027-04-28",
+          "checkOutDate": "2027-05-07",
+          "price": {
+            "currency": "EUR",
+            "total": "900.00"
+          },
+          "policies": {
+            "refundable": {
+              "cancellationRefund": "REFUNDABLE_UP_TO_DEADLINE"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "hotel-offers",
+      "hotel": {
+        "hotelId": "HLKYO002",
+        "name": "GION GUEST HOUSE",
+        "cityCode": "KYO"
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "OFFERBBB2",
+          "checkInDate": "2027-04-28",
+          "checkOutDate": "2027-05-07",
+          "price": {
+            "currency": "EUR",
+            "total": "540.00"
+          },
+          "policies": {
+            "refundable": {
+              "cancellationRefund": "NON_REFUNDABLE"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

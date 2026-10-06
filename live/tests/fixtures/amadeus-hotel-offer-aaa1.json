@@ -1,0 +1,19 @@
+{
+  "data": {
+    "type": "hotel-offers",
+    "available": true,
+    "hotel": {
+      "hotelId": "HLKYO001",
+      "name": "KYOTO GRAND"
+    },
+    "offers": [
+      {
+        "id": "OFFERAAA1",
+        "price": {
+          "currency": "EUR",
+          "total": "990.00"
+        }
+      }
+    ]
+  }
+}

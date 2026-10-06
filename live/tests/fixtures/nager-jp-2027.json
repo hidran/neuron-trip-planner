@@ -1,0 +1,80 @@
+[
+  {
+    "date": "2027-01-01",
+    "localName": "元日",
+    "name": "New Year's Day",
+    "countryCode": "JP",
+    "fixed": false,
+    "global": true,
+    "counties": null,
+    "launchYear": null,
+    "types": [
+      "Public"
+    ]
+  },
+  {
+    "date": "2027-04-29",
+    "localName": "昭和の日",
+    "name": "Showa Day",
+    "countryCode": "JP",
+    "fixed": false,
+    "global": true,
+    "counties": null,
+    "launchYear": null,
+    "types": [
+      "Public"
+    ]
+  },
+  {
+    "date": "2027-05-03",
+    "localName": "憲法記念日",
+    "name": "Constitution Memorial Day",
+    "countryCode": "JP",
+    "fixed": false,
+    "global": true,
+    "counties": null,
+    "launchYear": null,
+    "types": [
+      "Public"
+    ]
+  },
+  {
+    "date": "2027-05-04",
+    "localName": "みどりの日",
+    "name": "Greenery Day",
+    "countryCode": "JP",
+    "fixed": false,
+    "global": true,
+    "counties": null,
+    "launchYear": null,
+    "types": [
+      "Public"
+    ]
+  },
+  {
+    "date": "2027-05-05",
+    "localName": "こどもの日",
+    "name": "Children's Day",
+    "countryCode": "JP",
+    "fixed": false,
+    "global": true,
+    "counties": null,
+    "launchYear": null,
+    "types": [
+      "Public"
+    ]
+  },
+  {
+    "date": "2027-07-19",
+    "localName": "海の日",
+    "name": "Marine Day",
+    "countryCode": "JP",
+    "fixed": false,
+    "global": true,
+    "counties": null,
+    "launchYear": null,
+    "types": [
+      "Public"
+    ]
+  }
+]

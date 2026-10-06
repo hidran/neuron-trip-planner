@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "count": 1
+  },
+  "data": [
+    {
+      "type": "location",
+      "subType": "AIRPORT",
+      "name": "MARCO POLO",
+      "iataCode": "VCE",
+      "geoCode": {
+        "latitude": 45.505,
+        "longitude": 12.351
+      }
+    }
+  ]
+}
